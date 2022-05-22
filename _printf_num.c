@@ -13,10 +13,10 @@ unsigned int printf_di(va_list val, int counter)
 	int i = 0, j = 0;
 	char table[41];
 
-	if (!num)
+	if (num == 0)
 	{
 		_putchar('0');
-		counter++;
+		return (counter++);
 	}
 	else if (num < 0)
 	{
