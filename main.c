@@ -45,19 +45,10 @@ int main(void)
 	printf("css%ccs%scscscs\n\n", 'T', "Test");
 	
 	_printf(NULL);
-	printf(NULL);
-	
 	_printf("%c\n", '\0');
-	printf("%c\n\n", '\0');
-	
 	_printf("%\n");
-	printf("%\n\n");
-	
-	_printf("%!\n");
-	printf("%!\n\n");
-	
+	_printf("%!\n");	
 	_printf("%K\n");
-	printf("%K\n");
 	
 	fflush(stdout);
 	if (len != len2)
