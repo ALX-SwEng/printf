@@ -27,7 +27,7 @@ unsigned int printf_di(va_list val, int counter)
 	else
 		revNum = num;
 
-	while (revNUm != 0)
+	while (revNum != 0)
 	{
 		table[j++] = (revNum % 10) + '0';
 		revNum /= 10;
