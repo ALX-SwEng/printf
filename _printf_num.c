@@ -8,7 +8,7 @@
  */
 unsigned int printf_di(va_list val, int counter)
 {
-	long int num = va_arg(val, int);
+	long int num = va_arg(val, long int);
 	unsigned long int revNum;
 	int i = 0, j = 0;
 	char table[41];
