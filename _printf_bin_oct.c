@@ -47,7 +47,7 @@ unsigned int printf_b(va_list val, int counter)
 }
 
 /**
- * printf_b - print a formatted binary.
+ * printf_o - print a formatted binary.
  * @val: string to print - may contain directives.
  * @counter: character counter.
  * Return: # of characters printed.
