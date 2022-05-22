@@ -31,6 +31,7 @@ unsigned int printf_c(va_list, int);
 unsigned int printf_s(va_list, int);
 
 unsigned int printf_di(va_list, int);
-unsigned int printf_b(va_list val, int counter);
+unsigned int printf_b(va_list, int);
+unsigned int printf_o(va_list, int);
 
 #endif
