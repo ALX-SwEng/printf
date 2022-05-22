@@ -11,13 +11,8 @@ unsigned int printf_di(va_list val, int counter)
 	long int num = va_arg(val, int);
 	unsigned long int revNum;
 	int i = 0, j = 0, len;
-	char *table;
+	char table[41];
 
-	revNum = num;
-	while (revNum /= 10)
-		++len;
-
-	table = malloc(sizeof(char *) * len);
 	if (num == 0)
 	{
 		_putchar('0');
@@ -45,7 +40,6 @@ unsigned int printf_di(va_list val, int counter)
 		counter++;
 	}
 
-	free(table);
 	return (counter);
 }
 
