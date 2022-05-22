@@ -12,8 +12,8 @@ int main(void)
 	int len, len2;
 	long res = INT_MAX;
 
-	len = _printf("%i\n", 10000);
-	len2 = printf("%i\n", 10000);
+	len = _printf("%d\n", 10000);
+	len2 = printf("%d\n", 10000);
 	fflush(stdout);
 	if (len != len2)
 	{
