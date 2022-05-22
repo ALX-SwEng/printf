@@ -48,14 +48,8 @@ unsigned int printf_b(va_list val, int counter)
 unsigned int printf_o(va_list val, int counter)
 {
 	long int octal = va_arg(val, unsigned int);
-	unsigned int tmp;
-	int i = 0, j = 0, len = 0;
-	char *table;
-
-	tmp = octal;
-	while (tmp /= 8)
-		++len;
-	table = malloc(len * sizeof(char *));
+	int i = 0, j = 0;
+	char table[51];
 	counter = 0;
 
 	if (!octal)
@@ -78,7 +72,73 @@ unsigned int printf_o(va_list val, int counter)
 			counter++;
 		}
 	}
-	free(table);
+
 	return (counter);
 }
 
+/**
+ * printf_x - print a formatted hexadecimal.
+ * @val: string to print - may contain directives.
+ * @counter: character counter.
+ * Return: # of characters printed.
+ */
+
+unsigned int printf_x(va_list val, int flag)
+{
+	long int hexa = va_arg(val, unsigned int);
+	int i = 0, j = 0, counter = 0;
+	char table[51];
+	char *upper = "ABCDEF", *lower = "abcdef";
+	int hexadec = {10, 11, 12, 13, 14, 15};
+
+	if (!hexa)
+	{
+		_putchar('0');
+		counter++;
+	}
+	else
+	{
+		while (hexa)
+		{
+			table[j++] = (hexa % 16) + '0';
+			hexa /= 16;
+			i++;
+		}
+
+		while (--i >= 0)
+		{
+			if (table[i] - '0' < 10)
+				_putchar(table[i]);
+			for (j = 0; j < 6; j++)
+			{
+				if (flag == 1 && table[i] == hexadec[j])
+				{
+					_putchar(upper[j]);
+					break;
+				}
+				else
+				{
+					_putchar(lower[j]);
+					break;
+				}
+			}
+			counter++;
+		}
+	}
+
+	return (counter);
+}
+
+
+/**
+ * printf_X - call a function that print formatted hexadecimal.
+ * @val: string to print - may contain directives.
+ * @counter: character counter.
+ * Return: # of characters printed.
+ */
+
+unsigned int printf_X(va_list val, int flag)
+{
+	flag = 1;
+	return (printf_x(val, flag);	
+}
