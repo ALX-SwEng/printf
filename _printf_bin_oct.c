@@ -53,7 +53,7 @@ unsigned int printf_b(va_list val, int counter)
  * Return: # of characters printed.
  */
 
-unsigned int printf_f(va_list val, int counter)
+unsigned int printf_o(va_list val, int counter)
 {
 	long int octal = va_arg(val, unsigned int);
 	unsigned int tmp;
