@@ -10,16 +10,10 @@
 unsigned int printf_b(va_list val, int counter)
 {
 	long int binary = va_arg(val, unsigned int);
-	unsigned int tmp;
-	int i = 0, j = 0, len = 0;
-	char *table;
+	int i = 0, j = 0;
+	char table[51];
 
-	tmp = binary;
-	while (tmp /= 2)
-		++len;
-	table = malloc(sizeof(char *) * len);
 	counter = 0;
-
 	if (!binary)
 	{
 		_putchar('0');
@@ -34,15 +28,13 @@ unsigned int printf_b(va_list val, int counter)
 			i++;
 		}
 
-		i--;
-		while (i >= 0)
+		while (--i >= 0)
 		{
 			_putchar(table[i]);
-			i--;
 			counter++;
 		}
 	}
-	free(table);
+
 	return (counter);
 }
 
