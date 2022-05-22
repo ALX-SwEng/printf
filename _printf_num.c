@@ -13,7 +13,7 @@ unsigned int printf_di(va_list val, int counter)
 	int i = 0, j = 0;
 	char table[41];
 
-	if (num == 0)
+	if (!num)
 	{
 		_putchar('0');
 		return (counter++);
