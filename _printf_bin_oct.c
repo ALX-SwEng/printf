@@ -89,7 +89,7 @@ unsigned int printf_x(va_list val, int flag)
 	int i = 0, j = 0, counter = 0;
 	char table[51];
 	char *upper = "ABCDEF", *lower = "abcdef";
-	int hexadec = {10, 11, 12, 13, 14, 15};
+	int hexadec[] = {10, 11, 12, 13, 14, 15};
 
 	if (!hexa)
 	{
