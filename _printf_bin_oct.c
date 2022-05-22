@@ -140,5 +140,5 @@ unsigned int printf_x(va_list val, int flag)
 unsigned int printf_X(va_list val, int flag)
 {
 	flag = 1;
-	return (printf_x(val, flag);	
+	return (printf_x(val, flag));	
 }
