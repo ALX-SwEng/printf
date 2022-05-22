@@ -81,14 +81,15 @@ unsigned int (*check_specifiers(const char *specifier))(va_list, int)
 {
 	int j;
 	print_modifier modifier[] = {
-								{'c', printf_c},
-								{'s', printf_s},
-								{'i', printf_di},
-								{'d', printf_di},
-								{'b', printf_b},
-								{'o', printf_o},
-								{0, NULL}
-							};
+				{'c', printf_c},
+				{'s', printf_s},
+				{'i', printf_di},
+				{'d', printf_di},
+				{'b', printf_b},
+				{'o', printf_o},
+				{0, NULL}
+			};
+
 	for (j = 0; modifier[j].func; j++)
 	{
 		if (modifier[j].specifier == *specifier)
