@@ -21,7 +21,7 @@ unsigned int printf_di(va_list val, int counter)
 	if (num == 0)
 	{
 		_putchar('0');
-		counter++;		
+		counter++;	
 	}
 	else if (num < 0)
 	{
