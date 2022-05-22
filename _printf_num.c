@@ -8,8 +8,7 @@
  */
 unsigned int printf_di(va_list val, int counter)
 {
-	int num = va_arg(val, int);
-	unsigned int revNum;
+	long int num = va_arg(val, long int);
 	int i = 0, j = 0;
 	char table[41];
 
@@ -21,16 +20,14 @@ unsigned int printf_di(va_list val, int counter)
 	else if (num < 0)
 	{
 		_putchar('-');
-		revNum = -num;
+		num = -num;
 		counter++;
 	}
-	else
-		revNum = num;
 
-	while (revNum != 0)
+	while (num != 0)
 	{
-		table[j++] = (revNum % 10) + '0';
-		revNum /= 10;
+		table[j++] = (num % 10) + '0';
+		num /= 10;
 		i++;
 	}
 
