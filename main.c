@@ -31,10 +31,8 @@ int main(void)
 	_printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0); 
 	printf("Complete the sentence: You %s nothing, Jon Snow.\n\n", (char *)0);
 	
-	_printf("%c%cth %s%s a%cg%s: Y%sou %s no%ching%s Snow.%c", 
-		'W', 'i', "some ", "more", 'r', "s", "", "know", 't', ", Jon", '\n');
-	printf("%c%cth %s%s a%cg%s: Y%sou %s no%ching%s Snow.%c", 
-		'W', 'i', "some ", "more", 'r', "s", "", "know", 't', ", Jon", '\n', '\n');
+	_printf("%c%cth %s%s a%cg%s: Y%sou %s no%ching%s Snow.%c", 'W', 'i', "some ", "more", 'r', "s", "", "know", 't', ", Jon", '\n');
+	printf("%c%cth %s%s a%cg%s: Y%sou %s no%ching%s Snow.%c\n", 'W', 'i', "some ", "more", 'r', "s", "", "know", 't', ", Jon", '\n');
 
 	_printf("%%\n");
 	printf("%%\n\n");
@@ -42,12 +40,9 @@ int main(void)
 	printf("Should print a single percent sign: %%\n\n");
 	
 	_printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 99", " Please wait", '\n');
-	printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 99", " Please wait", '\n', '\n');
+	printf("%s%c%c%c%s%%%s%c\n", "Loading ", '.', '.', '.', " 99", " Please wait", '\n');
 	_printf("css%ccs%scscscs\n", 'T', "Test");
 	printf("css%ccs%scscscs\n\n", 'T', "Test");
-	
-	_printf(str); 
-	_printf("man gcc:\n%s", str);
 	
 	_printf(NULL);
 	printf(NULL);
