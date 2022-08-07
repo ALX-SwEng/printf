@@ -52,6 +52,7 @@ void free_buffer(buffer_t *output)
 buffer_t *init_buffer(void)
 {
 	buffer_t *output;
+
 	output = malloc(sizeof(buffer_t));
 	if (output == NULL)
 		return (NULL);
