@@ -56,20 +56,21 @@ unsigned int convert_di(va_list args, buffer_t *output,
 		count += (PLUS_FLAG == 1 && d >= 0) ? 1 : 0;
 		count += (SPACE_FLAG == 1 && d >= 0) ? 1 : 0;
 
-	/* Handle plus flag when zero flag is active */
-	if (ZERO_FLAG == 1 && PLUS_FLAG == 1 && d >= 0)
-		ret += _memcpy(output, &plus, 1);
+		/* Handle plus flag when zero flag is active */
+		if (ZERO_FLAG == 1 && PLUS_FLAG == 1 && d >= 0)
+			ret += _memcpy(output, &plus, 1);
 
-	/*Print negative sign when zero flag is active */
-	if (ZERO_FLAG == 1 && d < 0)
+		/*Print negative sign when zero flag is active */
+		if (ZERO_FLAG == 1 && d < 0)
 		ret += _memcpy(output, &neg, 1);
-	pad = (ZERO_FLAG == 1) ? '0' : ' ';
 
-	for (wid -= count; wid > 0; wid--)
+		pad = (ZERO_FLAG == 1) ? '0' : ' ';
+
+		for (wid -= count; wid > 0; wid--)
 		ret += _memcpy(output, &pad, 1);
-}
+	}
 
-  /* Print negative sign when zero flag is not active */
+	/* Print negative sign when zero flag is not active */
 	if (ZERO_FLAG == 0 && d < 0)
 		ret += _memcpy(output, &neg, 1);
 
@@ -97,10 +98,11 @@ return (ret);
  *
  * Return: The number of bytes stored to the buffer.
  */
-unsigned int convert_b(va_list args, buffer_t *output, 
+unsigned int convert_b(va_list args, buffer_t *output,
 	unsigned char flags, int wid, int prec, unsigned char len)
 {
 	unsigned int num;
+
 	num = va_arg(args, unsigned int);
 	(void)len;
 	return (convert_ubase(output, num, "01", flags, wid, prec));
