@@ -18,7 +18,7 @@ unsigned char flags, int wid, int prec, unsigned char len);
  */
 unsigned int convert_x(va_list args, buffer_t *output,
 	unsigned char flags, int wid, int prec, unsigned char len)
-{ 
+{
 	unsigned long int num;
 	unsigned int ret = 0;
 	char *lead = "0x";
@@ -33,7 +33,7 @@ unsigned int convert_x(va_list args, buffer_t *output,
 	if (HASH_FLAG == 1 && num != 0)
 		ret += _memcpy(output, lead, 2);
 	if (!(num == 0 && prec == 0))
-		ret += convert_ubase(output, num, "0123456789abcdef",flags, wid, prec);
+		ret += convert_ubase(output, num, "0123456789abcdef", flags, wid, prec);
 
 	ret += print_neg_width(output, ret, flags, wid);
 return (ret);

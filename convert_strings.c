@@ -25,7 +25,7 @@ unsigned int convert_R(va_list args, buffer_t *output,
  */
 
 unsigned int convert_s(va_list args, buffer_t *output,
-	unsigned char flags, int wid, int prec, unsigned char len) 
+	unsigned char flags, int wid, int prec, unsigned char len)
 {
 	char *str, *null = "(null)";
 	int size;
@@ -71,7 +71,7 @@ unsigned int convert_s(va_list args, buffer_t *output,
  */
 
 unsigned int convert_S(va_list args, buffer_t *output,
-	unsigned char flags, int wid, int prec, unsigned char len)  
+	unsigned char flags, int wid, int prec, unsigned char len)
 {
 	char *str, *null = "(null)", *hex = "\\x", zero = '0';
 	int size, index;
@@ -98,10 +98,10 @@ unsigned int convert_S(va_list args, buffer_t *output,
 			ret += convert_ubase(output, *(str + index),
 					"0123456789ABCDEF", flags, 0, 0);
 			continue;
-			
+
 		}
-		ret += _memcpy(output, (str + index), 1); 
-    }
+		ret += _memcpy(output, (str + index), 1);
+  }
 	ret += print_neg_width(output, ret, flags, wid);
 return (ret);
 }
@@ -120,7 +120,7 @@ return (ret);
  */
 
 unsigned int convert_r(va_list args, buffer_t *output,
-	unsigned char flags, int wid, int prec, unsigned char len) 
+	unsigned char flags, int wid, int prec, unsigned char len)
 {
 	char *str, *null = "(null)";
 	int size, end, i;
@@ -161,7 +161,7 @@ return (ret);
  */
 
 unsigned int convert_R(va_list args, buffer_t *output,
-	unsigned char flags, int wid, int prec, unsigned char len)  
+	unsigned char flags, int wid, int prec, unsigned char len)
 {
 	char *alpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char *rot13 = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
