@@ -164,7 +164,6 @@ unsigned int (*handle_specifiers(const char *specifier))(va_list, buffer_t *,
 		unsigned char flags, int width, int precision, unsigned char length)
 {
 	int i;
-
 	converter_t converters[] = {
 							{'c', convert_c},
 							{'s', convert_s},
@@ -182,6 +181,7 @@ unsigned int (*handle_specifiers(const char *specifier))(va_list, buffer_t *,
 							{'R', convert_R},
 							{0, NULL}
 						};
+
 	for (i = 0; converters[i].func; i++)
 	{
 		if (converters[i].specifier == *specifier)
