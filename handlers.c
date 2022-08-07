@@ -150,7 +150,6 @@ int handle_precision(va_list args, const char *modifier, char *index)
 /**
  * handle_specifiers - Matches a conversion specifier with
  *                     a corresponding conversion function.
- * @specifier: A pointer to a potential conversion specifier.
  * @flags: A character representing a flag
  * @width: A width modifier
  * @precision: A precision modifier.
