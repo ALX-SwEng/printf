@@ -13,6 +13,7 @@ buffer_t *init_buffer(void);
  *
  * Return: The number of bytes copied.
  */
+
 unsigned int _memcpy(buffer_t *output, const char *src, unsigned int n)
 {
 	unsigned int index;
@@ -21,18 +22,15 @@ unsigned int _memcpy(buffer_t *output, const char *src, unsigned int n)
 	{
 		*(output->buffer) = *(src + index);
 		(output->len)++;
-
 		if (output->len == 1024)
 		{
 			write(1, output->start, output->len);
 			output->buffer = output->start;
 			output->len = 0;
 		}
-
 		else
 			(output->buffer)++;
 	}
-
 	return (n);
 }
 
@@ -58,16 +56,13 @@ buffer_t *init_buffer(void)
 	output = malloc(sizeof(buffer_t));
 	if (output == NULL)
 		return (NULL);
-
 	output->buffer = malloc(sizeof(char) * 1024);
 	if (output->buffer == NULL)
 	{
 		free(output);
 		return (NULL);
 	}
-
 	output->start = output->buffer;
 	output->len = 0;
-
 	return (output);
 }
