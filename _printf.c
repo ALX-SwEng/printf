@@ -1,7 +1,9 @@
 #include "main.h"
+
 void cleanup(va_list args, buffer_t *output);
 int run_printf(const char *format, va_list args, buffer_t *output);
 int _printf(const char *format, ...);
+unsigned int (*f)(va_list, buffer_t *, unsigned char, int, int, unsigned char);
 
 /**
  * cleanup - Peforms cleanup operations for _printf.
@@ -28,11 +30,6 @@ int run_printf(const char *format, va_list args, buffer_t *output)
 	int i, wid, prec, ret = 0;
 	char tmp;
 	unsigned char flags, len;
-    /*
-    * f: function pointer
-    */
-	unsigned int (*f)(va_list, buffer_t *,
-					unsigned char, int, int, unsigned char);
 
 	for (i = 0; *(format + i); i++)
 	{
