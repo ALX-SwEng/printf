@@ -3,7 +3,7 @@
 unsigned char handle_flags(const char *flag, char *index);
 unsigned char handle_length(const char *modifier, char *index);
 int handle_width(va_list args, const char *modifier, char *index);
-int handle_precision(va_list args, const char *modifier, char *index);
+int handle_precision(const char *modifier, char *index);
 unsigned int (*handle_specifiers(const char *specifier))(va_list, buffer_t *,
 unsigned char, int, int, unsigned char);
 
@@ -106,7 +106,6 @@ int handle_width(va_list args, const char *modifier, char *index)
 /**
  * handle_precision - Matches a precision modifier with
  *                    its corresponding value.
- * @args: A va_list of arguments.
  * @modifier: A pointer to a potential precision modifier.
  * @index: An index counter for the original format string.
  *
@@ -115,12 +114,13 @@ int handle_width(va_list args, const char *modifier, char *index)
  *         Otherwise - -1.
  */
 
-int handle_precision(va_list args, const char *modifier, char *index)
+int handle_precision(const char *modifier, char *index)
 {
 	int value = 0;
 
 	if (*modifier != '.')
 		return (-1);
+
 	modifier++;
 	(*index)++;
 
@@ -130,10 +130,11 @@ int handle_precision(va_list args, const char *modifier, char *index)
 			(*index)++;
 		return (0);
 	}
+
 	while ((*modifier >= '0' && *modifier <= '9') ||	(*modifier == '*'))
 	{
 		(*index)++;
-		(*modifier == '*')
+		if(*modifier == '*')
 		{
 			value = va_arg(args, int);
 			if (value <= 0)
