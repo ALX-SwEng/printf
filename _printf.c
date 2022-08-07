@@ -12,7 +12,7 @@ void cleanup(va_list args, buffer_t *output)
 {
 	va_end(args);
 	write(1, output->start, output->len);
-	free_buffer(output); 
+	free_buffer(output);
 }
 
 /**
@@ -47,18 +47,18 @@ int run_printf(const char *format, va_list args, buffer_t *output)
 			{
 				i += tmp + 1;
 				ret += f(args, output, flags, wid, prec, len);
-				continue; 
+				continue;
 			}
 			else if (*(format + i + tmp + 1) == '\0')
 			{
 				ret = -1;
-				break; 
+				break;
 			}
 		}
 		ret += _memcpy(output, (format + i), 1);
 		i += (len != 0) ? 1 : 0; }
 		cleanup(args, output);
-		return (ret); 
+		return (ret);
 	}
 
 /**
@@ -82,5 +82,5 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 	ret = run_printf(format, args, output);
-	return (ret); 
+	return (ret);
 }
