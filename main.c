@@ -13,12 +13,15 @@ int main(void)
 {
 	int len;
 	int len2;
-	unsigned int ui;
-	void *addr;
-
 	len = _printf("% i + % i = % i\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
 	len2 = printf("% i + % i = % i\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
-	
 
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
 	return (0);
 }
