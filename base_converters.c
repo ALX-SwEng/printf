@@ -32,12 +32,12 @@ unsigned char flags, int wid, int prec)
 	{
 		for (; prec > 1; prec--, wid--) /* Handle precision */
 			ret += _memcpy(output, &pad, 1);
-			if (NEG_FLAG == 0) /* Handle width */
-			{
-				pad = (ZERO_FLAG == 1) ? '0' : ' ';
-				for (; wid > 1; wid--)
-					ret += _memcpy(output, &pad, 1);
-			}
+		if (NEG_FLAG == 0) /* Handle width */
+		{
+			pad = (ZERO_FLAG == 1) ? '0' : ' ';
+			for (; wid > 1; wid--)
+				ret += _memcpy(output, &pad, 1);
+		}
 	}
 	digit = base[(num < 0 ? -1 : 1) * (num % size)];
 	_memcpy(output, &digit, 1);

@@ -66,7 +66,7 @@ unsigned int convert_di(va_list args, buffer_t *output,
 		ret += _memcpy(output, &plus, 1);
 	if (!(d == 0 && prec == 0))
 		ret += convert_sbase(output, d, "0123456789", flags, 0, prec);
-ret += print_neg_width(output, ret, flags, wid)
+ret += print_neg_width(output, ret, flags, wid);
 return (ret);
 }
 
@@ -157,7 +157,7 @@ unsigned int convert_u(va_list args, buffer_t *output,
 	if (!(num == 0 && prec == 0))
 		ret += convert_ubase(output, num, "0123456789",
 			flags, wid, prec);
-		ret += print_neg_width(output, ret, flags, wid);
 
+  ret += print_neg_width(output, ret, flags, wid);
 	return (ret);
 }
