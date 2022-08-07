@@ -47,28 +47,21 @@ unsigned int convert_di(va_list args, buffer_t *output,
 		else
 		{
 			for (copy = (d < 0) ? -d : d; copy > 0; copy /= 10)
-				count++;
-		}
-		count += (d == 0) ? 1 : 0;
-		count += (d < 0) ? 1 : 0;
+				count++; }
+		count += (d <= 0) ? 1 : 0;
 		count += (PLUS_FLAG == 1 && d >= 0) ? 1 : 0;
 		count += (SPACE_FLAG == 1 && d >= 0) ? 1 : 0;
-
-		/* Handle plus flag when zero flag is active */
+		/* Handle plus flag when 0 flag is active */
 		if (ZERO_FLAG == 1 && PLUS_FLAG == 1 && d >= 0)
 			ret += _memcpy(output, &plus, 1);
-		/*Print negative sign when zero flag is active */
-		if (ZERO_FLAG == 1 && d < 0)
-		ret += _memcpy(output, &neg, 1);
-
+		if (ZERO_FLAG == 1 && d < 0) /*Print -ve sign when 0 flag is active */
+			ret += _memcpy(output, &neg, 1);
 		pad = (ZERO_FLAG == 1) ? '0' : ' ';
 		for (wid -= count; wid > 0; wid--)
-			ret += _memcpy(output, &pad, 1);
-	}
-	/* Print negative sign when zero flag is not active */
-	if (ZERO_FLAG == 0 && d < 0)
+			ret += _memcpy(output, &pad, 1); }
+	if (ZERO_FLAG == 0 && d < 0) /* Print -ve sign when 0 flag is not active */
 		ret += _memcpy(output, &neg, 1);
-	/* Handle plus flag when zero flag is not active */
+	/* Handle plus flag when 0 flag is not active */
 	if (ZERO_FLAG == 0 && (PLUS_FLAG == 1 && d >= 0))
 		ret += _memcpy(output, &plus, 1);
 	if (!(d == 0 && prec == 0))
@@ -76,7 +69,6 @@ unsigned int convert_di(va_list args, buffer_t *output,
 ret += print_neg_width(output, ret, flags, wid)
 return (ret);
 }
-
 
 /**
  * convert_b - Converts an unsigned int argument to binary
