@@ -41,7 +41,7 @@ unsigned char handle_flags(const char *flag, char *index)
 				break;
 			}
 		}
-		
+
 		if (flags[j].value == 0)
 			break;
 	}
@@ -165,14 +165,14 @@ unsigned int (*handle_specifiers(const char *specifier))(va_list, buffer_t *,
 							{'i', convert_di},
 							{'%', convert_percent},
 							{'b', convert_b},
-							{'u', convert_u},  
+							{'u', convert_u},
 							{'o', convert_o},
-							{'x', convert_x},  
+							{'x', convert_x},
 							{'X', convert_X},
 							{'S', convert_S},
 							{'p', convert_p},
 							{'r', convert_r},
-							{'R', convert_R},  
+							{'R', convert_R},
 							{0, NULL}
 						};
 	for (i = 0; converters[i].func; i++)
