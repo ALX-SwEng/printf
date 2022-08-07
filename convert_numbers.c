@@ -24,7 +24,6 @@ unsigned int convert_o(va_list args, buffer_t *output,
  *
  * Return: The number of bytes stored to the buffer.
  */
-
 unsigned int convert_di(va_list args, buffer_t *output,
 	unsigned char flags, int wid, int prec, unsigned char len)
 {
@@ -48,7 +47,8 @@ unsigned int convert_di(va_list args, buffer_t *output,
 		{
 			for (copy = (d < 0) ? -d : d; copy > 0; copy /= 10)
 				count++; }
-		count += (d <= 0) ? 1 : 0;
+		count += (d == 0) ? 1 : 0;
+		count += (d < 0) ? 1 : 0;
 		count += (PLUS_FLAG == 1 && d >= 0) ? 1 : 0;
 		count += (SPACE_FLAG == 1 && d >= 0) ? 1 : 0;
 		/* Handle plus flag when 0 flag is active */
