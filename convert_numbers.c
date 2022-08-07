@@ -158,6 +158,6 @@ unsigned int convert_u(va_list args, buffer_t *output,
 		ret += convert_ubase(output, num, "0123456789",
 			flags, wid, prec);
 
-  ret += print_neg_width(output, ret, flags, wid);
+	ret += print_neg_width(output, ret, flags, wid);
 	return (ret);
 }
