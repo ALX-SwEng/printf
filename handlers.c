@@ -85,6 +85,7 @@ unsigned char handle_length(const char *modifier, char *index)
 int handle_width(va_list args, const char *modifier, char *index)
 {
 	int value = 0;
+
 	while ((*modifier >= '0' && *modifier <= '9') || (*modifier == '*'))
 	{
 		(*index)++;
@@ -117,6 +118,7 @@ int handle_width(va_list args, const char *modifier, char *index)
 int handle_precision(va_list args, const char *modifier, char *index)
 {
 	int value = 0;
+
 	if (*modifier != '.')
 		return (-1);
 	modifier++;
